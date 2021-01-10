@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import reducer from './reducers';
 import App from './routes/App';
 // import Header from './components/Header';
 const initialState = {
   'user': {},
-  'plating': {},
+  'playing': {},
   'myList': [
   ],
+  'searchResult': [],
   'trends': [
     {
       'id': 2,
@@ -22,7 +23,7 @@ const initialState = {
       'duration': 164,
       'cover': 'http://dummyimage.com/800x600.png/99118E/ffffff',
       'description': 'Vestibulum ac est lacinia nisi venenatis tristique',
-      'source': 'https://mdstrm.com/video/58333e214ad055d208427db5.mp4'
+      'source': '../src/assets/static/sampleVideo.mp4',
     },
     {
       'id': 3,
@@ -172,7 +173,8 @@ const initialState = {
   ]
 }
 
-const store = createStore(reducer, initialState);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(reducer, initialState, composeEnhancers());
 
 ReactDOM.render(
   <Provider store={store}>
