@@ -24,7 +24,7 @@ const Login = (props) => {
     event.preventDefault();
     props.loginRequest(form);
     props.history.push('/');
-  }
+  };
 
   return (
     <section className='login'>
@@ -49,7 +49,7 @@ const Login = (props) => {
           <div className='login__container--remember-me'>
             <label>
               <input type='checkbox' id='cbox1' value='first_checkbox' />
-					Recuérdame
+                Recuérdame
             </label>
             <a href='/'>Olvidé mi contraseña</a>
           </div>
